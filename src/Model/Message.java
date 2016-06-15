@@ -1,5 +1,6 @@
 package Model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -40,10 +41,6 @@ public class Message {
         return dateOfPost;
     }
 
-    public void setDateOfPost(Date dateOfPost) {
-        this.dateOfPost = dateOfPost;
-    }
-
     public Message(int messageId, User user, String text) {
         this.messageId = messageId;
         this.user = user;
@@ -53,10 +50,11 @@ public class Message {
 
     @Override
     public String toString() {
+        SimpleDateFormat simpledate = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
         return "Message{" +
                 "messageId=" + messageId +
                 ", user=" + user +
-                ", dateOfPost=" + dateOfPost +
+                ", dateOfPost=" + simpledate.format(dateOfPost) +
                 ", text='" + text + '\'' +
                 '}';
     }
