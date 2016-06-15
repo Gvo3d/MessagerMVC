@@ -45,10 +45,10 @@ public class Message {
         this.dateOfPost = dateOfPost;
     }
 
-    public Message(User user, Date dateOfPost, String text) {
+    public Message(User user, String text) {
         this.messageId = ++messageCounter;
         this.user = user;
-        this.dateOfPost = dateOfPost;
+        this.dateOfPost = new Date(System.currentTimeMillis());
         this.text = text;
     }
 }

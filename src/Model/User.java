@@ -5,16 +5,17 @@ package Model;
  */
 public class User {
 
-    private static int usercounter=0;
-
     private int id;
     private String name;
     private String password;
 
-    public User(String name, String password) {
-        this.id = ++usercounter;
+    public User(int id, String name, String password) {
+        this.id = id;
         this.name = name;
         this.password = password;
+    }
+
+    public User() {
     }
 
     public String getPassword() {
@@ -41,21 +42,4 @@ public class User {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-
-        User user = (User) o;
-
-        if (getId() != user.getId()) return false;
-        return getName().equals(user.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getId();
-        result = 31 * result + getName().hashCode();
-        return result;
-    }
 }
