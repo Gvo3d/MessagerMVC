@@ -6,7 +6,6 @@ import java.util.Date;
  * Created by Gvozd on 15.06.2016.
  */
 public class Message {
-    private static int messageCounter=0;
 
     private int messageId;
     private User user;
@@ -45,8 +44,8 @@ public class Message {
         this.dateOfPost = dateOfPost;
     }
 
-    public Message(User user, String text) {
-        this.messageId = ++messageCounter;
+    public Message(int messageId, User user, String text) {
+        this.messageId = messageId;
         this.user = user;
         this.dateOfPost = new Date(System.currentTimeMillis());
         this.text = text;

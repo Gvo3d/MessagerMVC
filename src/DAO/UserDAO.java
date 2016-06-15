@@ -16,4 +16,6 @@ public interface UserDAO {
     public boolean passwordConfirmation(int id, String pass);
 
     public List userList();
+
+    public int getUserCount();
 }

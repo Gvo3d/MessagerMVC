@@ -67,4 +67,9 @@ public class UserDAOImpl implements UserDAO {
         Collections.copy(resultList, userData);
         return resultList;
     }
+
+    @Override
+    public int getUserCount() {
+        return usercounter;
+    }
 }
