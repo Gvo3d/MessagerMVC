@@ -64,7 +64,7 @@ public class UserServicesImpl implements UserServices {
     }
 
     @Override
-    public List getUserList() {
+    public List<User> getUserList() {
         ArrayList<User> resultList = new ArrayList();
         resultList.addAll(userData);
         return resultList;
