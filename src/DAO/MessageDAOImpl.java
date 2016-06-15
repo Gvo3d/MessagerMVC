@@ -1,28 +1,30 @@
 package DAO;
 
 import Model.Message;
+import Structure.MessageQueueImpl;
 
-import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by Gvozd on 15.06.2016.
  */
 public class MessageDAOImpl implements MessageDAO {
-    LinkedList<Message> messagesData = new LinkedList<>();
+    MessageQueueImpl messages = new MessageQueueImpl();
+    private int messagesCount=0;
 
     @Override
-    public boolean addMessage(Message message) {
-        return false;
+    public void addMessage(Message message) {
+        messages.addMessage(message);
+        messagesCount++;
     }
 
     @Override
     public List getMessageList() {
-        return null;
+        return messages.getMessageList();
     }
 
     @Override
     public int getMessageCount() {
-        return 0;
+        return messagesCount;
     }
 }

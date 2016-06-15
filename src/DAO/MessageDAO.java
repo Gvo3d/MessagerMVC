@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface MessageDAO {
 
-    public boolean addMessage(Message message);
+    public void addMessage(Message message);
 
     public List getMessageList();
 

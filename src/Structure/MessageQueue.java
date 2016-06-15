@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface MessageQueue {
 
-    public void addMessage();
+    public void addMessage(Message message);
 
     public List<Message>getMessageList();
 
