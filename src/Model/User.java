@@ -15,9 +15,6 @@ public class User {
         this.password = password;
     }
 
-    public User() {
-    }
-
     public String getPassword() {
         return password;
     }
@@ -42,4 +39,12 @@ public class User {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

@@ -9,6 +9,10 @@ public class MessageNode{
     private Message message;
     private MessageNode next;
 
+    public static MessageNode getCopy(MessageNode node){
+        return new MessageNode(node.getMessage(), node.getNext());
+    }
+
     public Message getMessage() {
         return message;
     }
@@ -29,4 +33,6 @@ public class MessageNode{
         this.message = message;
         this.next = next;
     }
+
+
 }

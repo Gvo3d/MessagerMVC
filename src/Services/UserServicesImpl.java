@@ -1,12 +1,11 @@
-package DAO;
+package Services;
 
 import Model.User;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class UserDAOImpl implements UserDAO {
+public class UserServicesImpl implements UserServices {
     ArrayList<User> userData = new ArrayList<>();
     private static int usercounter=0;
 
@@ -14,9 +13,13 @@ public class UserDAOImpl implements UserDAO {
     public boolean addUser(User user) {
         if (!userData.contains(user)) {
             userData.add(user);
-            usercounter++;
             return true;
         } else return false;
+    }
+
+    @Override
+    public User createUser(String name, String password) {
+        return new User(usercounter++, name, password);
     }
 
     @Override
@@ -26,7 +29,6 @@ public class UserDAOImpl implements UserDAO {
             return false;
         } else {
             userData.set(tempSearch, null);
-            usercounter--;
             return true;
         }
     }
@@ -62,14 +64,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List userList() {
+    public List getUserList() {
         ArrayList<User> resultList = new ArrayList();
-        Collections.copy(resultList, userData);
+        resultList.addAll(userData);
         return resultList;
     }
 
-    @Override
-    public int getUserCount() {
-        return usercounter;
-    }
 }

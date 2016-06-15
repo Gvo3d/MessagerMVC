@@ -3,7 +3,6 @@ package Structure;
 import Model.Message;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class MessageQueueImpl implements MessageQueue {
@@ -12,23 +11,7 @@ public class MessageQueueImpl implements MessageQueue {
     private MessageNode firstNode;
     private MessageNode lastNode;
 
-    private class MessageIterator implements Iterator<MessageNode>{
-        private MessageNode iterableNode;
 
-        public MessageIterator() {
-            iterableNode = firstNode;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return (iterableNode.getNext()!=null);
-        }
-
-        @Override
-        public MessageNode next() {
-            return iterableNode.getNext();
-        }
-    }
 
     @Override
     public void addMessage(Message message) {
@@ -47,7 +30,7 @@ public class MessageQueueImpl implements MessageQueue {
     @Override
     public List<Message> getMessageList() {
         List<Message> resultList = new ArrayList<>();
-        for (MessageIterator iterator = new MessageIterator(); iterator.hasNext();){
+        for (MessageIterator iterator = new MessageIterator(firstNode); iterator.hasNext();){
             resultList.add(iterator.next().getMessage());
         }
         return resultList;
@@ -77,4 +60,5 @@ public class MessageQueueImpl implements MessageQueue {
     public static void setMaximumMessageCapacity(int maximumMessageCapacity) {
         MessageQueueImpl.maximumMessageCapacity = maximumMessageCapacity;
     }
+
 }

@@ -50,4 +50,14 @@ public class Message {
         this.dateOfPost = new Date(System.currentTimeMillis());
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "messageId=" + messageId +
+                ", user=" + user +
+                ", dateOfPost=" + dateOfPost +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }
