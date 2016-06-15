@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by Gvozd on 15.06.2016.
  */
 public class Message {
-    private static int messageCounter=1;
+    private static int messageCounter=0;
 
     private int messageId;
     private User user;

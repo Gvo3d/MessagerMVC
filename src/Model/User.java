@@ -4,12 +4,25 @@ package Model;
  * Created by Gvozd on 15.06.2016.
  */
 public class User {
+
+    private static int usercounter=0;
+
     private int id;
     private String name;
+    private String password;
 
-    public User(int id, String name) {
-        this.id = id;
+    public User(String name, String password) {
+        this.id = ++usercounter;
         this.name = name;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {
